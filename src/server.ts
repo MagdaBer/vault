@@ -1,10 +1,15 @@
 import express from 'express';
+import { readCredentials } from './utils/credentials';
 
 const app = express();
 const port = 3000;
 
-app.get('/', (_reqest, response) => {
-  response.send('Hello World!');
+app.get('/api/credentials', async (_reqest, response) => {
+  response.status(200).json(await readCredentials());
+});
+
+app.get('/', (_request, response) => {
+  response.send('Hello Server!');
 });
 
 app.listen(port, () => {
