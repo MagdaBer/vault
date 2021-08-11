@@ -23,5 +23,16 @@ export async function addCredential(credential: Credential): Promise<void> {
   const credentials = await readCredentials();
   const newCredentials = [...credentials, credential];
   const newDB: DB = { credentials: newCredentials };
-  await writeFile('src/db.json', JSON.stringify(newDB));
+  await writeFile('src/db.json', JSON.stringify(newDB, null, 2));
+}
+
+export async function deletCredential(service: string): Promise<void> {
+  const credentials = await readCredentials();
+  const filteredcredentials = credentials.filter(
+    (credential) => credential.service.toLowerCase() !== service.toLowerCase()
+  );
+  const newDB: DB = {
+    credentials: filteredcredentials,
+  };
+  await writeFile('src/db.json', JSON.stringify(newDB, null, 2));
 }
