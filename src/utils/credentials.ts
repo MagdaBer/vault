@@ -22,7 +22,7 @@ export async function getCredential(service: string): Promise<Credential> {
 
 export async function addCredential(credential: Credential): Promise<void> {
   const credentials = await readCredentials();
-  const newCredentials = [...credentials, credential];
+  const newCredentials = [...credentials, encryptedCredential(credential)];
   const newDB: DB = { credentials: newCredentials };
   await writeFile('src/db.json', JSON.stringify(newDB, null, 2));
 }
@@ -46,6 +46,8 @@ export async function updateCredential(
   const filteredCredentials = credentials.filter(
     (credential) => credential.service.toLowerCase() !== service.toLowerCase()
   );
-  const newDB: DB = { credentials: [...filteredCredentials, credential] };
+  const newDB: DB = {
+    credentials: [...filteredCredentials, encryptedCredential(credential)],
+  };
   await writeFile('src/db.json', JSON.stringify(newDB, null, 2));
 }
