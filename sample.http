@@ -1,0 +1,30 @@
+### Get all credentials
+GET http://localhost:3000/api/credentials
+
+### Get single credential
+GET http://localhost:3000/api/credentials/google
+
+### Add single credential
+
+POST http://localhost:3000/api/credentials
+content-Type: application/json
+
+{
+    "service": "Instagram",
+    "username": "Magda",
+    "password": "13874618"
+}
+### Delete single credential
+
+DELETE http://localhost:3000/api/credentials/Instagram
+
+### Update single credential
+
+PUT http://localhost:3000/api/credentials/google
+content-Type: application/json
+
+{
+    "service": "StudiVZ",
+    "username": "Magda",
+    "password": "alterfisch"
+}
