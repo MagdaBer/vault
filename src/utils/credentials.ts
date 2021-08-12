@@ -1,5 +1,6 @@
 import { readFile, writeFile } from 'fs/promises';
 import { DB, Credential } from '../types';
+import { encryptedCredential } from './crypto';
 
 export async function readCredentials(): Promise<Credential[]> {
   const response = await readFile('src/db.json', 'utf-8');
