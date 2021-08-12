@@ -1,4 +1,4 @@
-import express, { request } from 'express';
+import express from 'express';
 import {
   addCredential,
   deletCredential,
@@ -21,7 +21,7 @@ app.get('/api/credentials', async (_reqest, response) => {
   }
 });
 
-app.post('/api/credentials', async (_request, response) => {
+app.post('/api/credentials', async (request, response) => {
   const credential: Credential = request.body;
   await addCredential(credential);
   response.status(200).send(credential);
