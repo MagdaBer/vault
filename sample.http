@@ -3,9 +3,9 @@ GET http://localhost:3000/api/credentials
 
 ### Get single credential
 GET http://localhost:3000/api/credentials/google
+Authorization: {{$dotenv MASTERPASSWORD}}
 
 ### Add single credential
-
 POST http://localhost:3000/api/credentials
 content-Type: application/json
 
@@ -15,13 +15,13 @@ content-Type: application/json
     "password": "13874618"
 }
 ### Delete single credential
-
 DELETE http://localhost:3000/api/credentials/Instagram
 
 ### Update single credential
 
 PUT http://localhost:3000/api/credentials/google
 content-Type: application/json
+Authorization: {{$dotenv MASTERPASSWORD}}
 
 {
     "service": "StudiVZ",
