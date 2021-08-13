@@ -8,17 +8,18 @@ Authorization: {{$dotenv MASTERPASSWORD}}
 ### Add single credential
 POST http://localhost:3000/api/credentials
 content-Type: application/json
+Authorization: {{$dotenv MASTERPASSWORD}}
 
 {
     "service": "Instagram",
     "username": "Magda",
     "password": "13874618"
 }
+
 ### Delete single credential
 DELETE http://localhost:3000/api/credentials/Instagram
 
 ### Update single credential
-
 PUT http://localhost:3000/api/credentials/google
 content-Type: application/json
 Authorization: {{$dotenv MASTERPASSWORD}}
