@@ -1,13 +1,15 @@
 import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
+
 import {
   addCredential,
-  deletCredential,
+  deleteCredential,
   getCredential,
   readCredentials,
   updateCredential,
 } from './utils/credentials';
+
 import type { Credential } from './types';
 import { validateMasterpassword } from './utils/validation';
 import { connectDatabase } from './utils/database';
