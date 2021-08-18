@@ -1,7 +1,7 @@
 import CryptoJS from 'crypto-js';
 import { Credential } from '../types';
 
-export function encryptedCredential(
+export function encryptCredential(
   credential: Credential,
   key: string
 ): Credential {
