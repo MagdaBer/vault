@@ -33,10 +33,10 @@ app.post('/api/credentials', async (request, response) => {
   const credential: Credential = request.body;
   const masterPassword = request.headers.authorization;
   if (!masterPassword) {
-    response.status(400).send('Please enter password!');
+    response.status(400).send('Authorization header missing');
     return;
   } else if (!(await validateMasterpassword(masterPassword))) {
-    response.status(401).send('The given password does´t fit!');
+    response.status(401).send('Unauthorized request');
     return;
   }
   await addCredential(credential, masterPassword);
@@ -47,10 +47,10 @@ app.get('/api/credentials/:service', async (request, response) => {
   const { service } = request.params;
   const masterPassword = request.headers.authorization;
   if (!masterPassword) {
-    response.status(400).send('Please enter password!');
+    response.status(400).send('Authorization header missing');
     return;
   } else if (!(await validateMasterpassword(masterPassword))) {
-    response.status(401).send('The given password does´t fit!');
+    response.status(401).send('Unauthorized request');
     return;
   }
 
@@ -68,10 +68,10 @@ app.put('/api/credentials/:service', async (request, response) => {
   const credential: Credential = request.body;
   const masterPassword = request.headers.authorization;
   if (!masterPassword) {
-    response.status(400).send('Please enter password!');
+    response.status(400).send('Authorization header missing');
     return;
   } else if (!(await validateMasterpassword(masterPassword))) {
-    response.status(401).send('The given password does´t fit!');
+    response.status(401).send('Unauthorized request');
     return;
   }
   try {
@@ -85,12 +85,12 @@ app.put('/api/credentials/:service', async (request, response) => {
 
 app.delete('/api/credentials/:service', async (request, response) => {
   const { service } = request.params;
-  await deletCredential(service);
+  await deleteCredential(service);
   response.status(200).send();
 });
 
 app.get('/', (_request, response) => {
-  response.send('Hello Server!');
+  response.send('Hello Credentials!');
 });
 
 connectDatabase(process.env.MONGODB_URL).then(() => {
