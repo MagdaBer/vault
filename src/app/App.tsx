@@ -1,14 +1,19 @@
 import React from 'react';
-
-import style from './App.module.css';
-
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 
 function App(): JSX.Element {
   return (
-    <div>
-      <Dashboard />
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/Magda">
+          <p>Magda</p>
+        </Route>
+        <Route path="/">
+          <Dashboard />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
