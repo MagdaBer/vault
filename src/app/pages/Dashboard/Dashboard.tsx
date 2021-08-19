@@ -14,7 +14,7 @@ export default function Dashboard(): JSX.Element {
       const credentials = await response.json();
       setCredentials(credentials);
     }
-    fetchCredentials;
+    fetchCredentials();
   }, []);
 
   return (
