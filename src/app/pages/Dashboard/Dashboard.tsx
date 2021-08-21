@@ -28,7 +28,6 @@ export default function Dashboard(): JSX.Element {
     <main className={styles.container}>
       <h1>Vault</h1>
       <p>Your personal password vault</p>
-      <Link to="password/Magda">Magda</Link>
       <input
         className={styles.input}
         type="password"
@@ -40,6 +39,9 @@ export default function Dashboard(): JSX.Element {
         credentials.map((credential) => (
           <CredentialCard credentialData={credential} />
         ))}
+      <Link to="/credential/add" className={styles.addButton}>
+        <img src="assets/add button.svg" />
+      </Link>
     </main>
   );
 }
