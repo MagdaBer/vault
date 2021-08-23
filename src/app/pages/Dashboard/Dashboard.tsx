@@ -42,6 +42,9 @@ export default function Dashboard(): JSX.Element {
       <Link to="/credential/add" className={styles.addButton}>
         <img src="assets/add button.svg" />
       </Link>
+      <Link to="/search" className={styles.searchButton}>
+        <img src="assets/Search button.svg" />
+      </Link>
     </main>
   );
 }
