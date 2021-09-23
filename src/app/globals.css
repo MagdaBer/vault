@@ -5,7 +5,11 @@
 *::before {
   box-sizing: border-box;
 }
-
+:root {
+  --text-primary: #35495e;
+  --text-secondary: #f29c1f;
+  --color-secondary: #f0c419;
+}
 body {
   margin: 0;
   font-family: 'Balsamiq Sans', cursive;
